@@ -1,0 +1,128 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Trade Service", "version": "1.0.0" },
+  "paths": {
+    "/trades": {
+      "get": {
+        "operationId": "listTrades",
+        "summary": "List all trades",
+        "tags": ["trade"],
+        "responses": {
+          "200": { "description": "Trades", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Trade" } } } } }
+        }
+      }
+    },
+    "/trades/{tradeId}": {
+      "get": {
+        "operationId": "getTradeById",
+        "summary": "Get a trade by id",
+        "tags": ["trade"],
+        "parameters": [
+          { "name": "tradeId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Trade", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Trade" } } } }
+        }
+      }
+    },
+    "/trades/{tradeId}/settlement": {
+      "get": {
+        "operationId": "getTradeSettlement",
+        "summary": "Get settlement details for a trade",
+        "tags": ["trade", "settlement"],
+        "parameters": [
+          { "name": "tradeId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Settlement", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Settlement" } } } }
+        }
+      }
+    },
+    "/positions": {
+      "get": {
+        "operationId": "listPositions",
+        "summary": "List positions, optionally filtered by portfolio",
+        "tags": ["position", "portfolio"],
+        "parameters": [
+          { "name": "portfolio", "in": "query", "required": false, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Positions", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PositionList" } } } }
+        }
+      }
+    },
+    "/trades/search": {
+      "post": {
+        "operationId": "searchTrades",
+        "summary": "Search trades by counterparty and status",
+        "tags": ["trade", "search"],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TradeSearchRequest" }, "example": { "counterpartyId": "CP-001", "status": "SETTLED" } } }
+        },
+        "responses": {
+          "200": { "description": "Search results", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TradeSearchResponse" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Trade": {
+        "type": "object",
+        "properties": {
+          "tradeId": { "type": "string" },
+          "portfolio": { "type": "string" },
+          "instrument": { "type": "string" },
+          "counterpartyId": { "type": "string" },
+          "amount": { "type": "number" },
+          "currency": { "type": "string" },
+          "status": { "type": "string" }
+        },
+        "required": ["tradeId", "counterpartyId", "amount", "currency"]
+      },
+      "Settlement": {
+        "type": "object",
+        "properties": {
+          "tradeId": { "type": "string" },
+          "settlementDate": { "type": "string" },
+          "cashAccount": { "type": "string" },
+          "status": { "type": "string" }
+        },
+        "required": ["tradeId", "status"]
+      },
+      "Position": {
+        "type": "object",
+        "properties": {
+          "instrument": { "type": "string" },
+          "amount": { "type": "number" },
+          "currency": { "type": "string" }
+        },
+        "required": ["instrument", "amount", "currency"]
+      },
+      "PositionList": {
+        "type": "object",
+        "properties": {
+          "portfolio": { "type": "string" },
+          "positions": { "type": "array", "items": { "$ref": "#/components/schemas/Position" } }
+        },
+        "required": ["positions"]
+      },
+      "TradeSearchRequest": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      },
+      "TradeSearchResponse": {
+        "type": "object",
+        "properties": {
+          "count": { "type": "integer" },
+          "trades": { "type": "array", "items": { "$ref": "#/components/schemas/Trade" } }
+        },
+        "required": ["count", "trades"]
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "name": "mcp-fabric-vscode-extension",
+  "displayName": "MCP Fabric Catalog Enricher",
+  "description": "Scan the current workspace, enrich discovered APIs with Copilot or Ollama, and write MCP Fabric catalog files.",
+  "version": "0.1.0",
+  "publisher": "demo",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": ["AI", "Other"],
+  "activationEvents": [
+    "onCommand:mcpFabric.enrichCurrentWorkspace",
+    "onCommand:mcpFabric.showCatalogMetrics"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mcpFabric.enrichCurrentWorkspace",
+        "title": "MCP Fabric: Enrich Current Workspace"
+      },
+      {
+        "command": "mcpFabric.showCatalogMetrics",
+        "title": "MCP Fabric: Show Catalog Metrics"
+      }
+    ],
+    "configuration": {
+      "title": "MCP Fabric",
+      "properties": {
+        "mcpFabric.ollamaBaseUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Base URL for local Ollama"
+        },
+        "mcpFabric.ollamaModel": {
+          "type": "string",
+          "default": "llama3.1",
+          "description": "Model name for local Ollama"
+        },
+        "mcpFabric.copilotFamily": {
+          "type": "string",
+          "default": "gpt-4o",
+          "description": "Preferred Copilot model family when available"
+        },
+        "mcpFabric.outputCatalogDir": {
+          "type": "string",
+          "default": "generated/catalog",
+          "description": "Catalog output directory relative to the workspace root"
+        },
+        "mcpFabric.outputMetricsDir": {
+          "type": "string",
+          "default": "generated/metrics",
+          "description": "Metrics output directory relative to the workspace root"
+        },
+        "mcpFabric.cacheIndexFile": {
+          "type": "string",
+          "default": "generated/cache-index.json",
+          "description": "Cache index file relative to the workspace root"
+        },
+        "mcpFabric.maxFiles": {
+          "type": "number",
+          "default": 250,
+          "description": "Maximum number of source files to scan"
+        },
+        "mcpFabric.maxFileSizeKb": {
+          "type": "number",
+          "default": 256,
+          "description": "Ignore files larger than this many KB"
+        },
+        "mcpFabric.forceRescan": {
+          "type": "boolean",
+          "default": false,
+          "description": "Always rescan even when the cached fingerprint matches"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.57",
+    "@types/vscode": "^1.110.0",
+    "typescript": "^5.8.2"
+  }
+}

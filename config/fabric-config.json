@@ -1,0 +1,48 @@
+{
+  "runtime": {
+    "persistSessions": true,
+    "persistAudit": true,
+    "sessionFile": "generated/runtime/sessions.json",
+    "auditFile": "generated/runtime/audit-log.json",
+    "healthFile": "generated/runtime/health-snapshots.json"
+  },
+  "execution": {
+    "requestTimeoutMs": 8000,
+    "maxRetries": 1,
+    "retryMethods": [
+      "GET"
+    ],
+    "healthCacheTtlMs": 15000,
+    "defaultReuseCached": true
+  },
+  "guardrails": {
+    "safeOnlyByDefault": false,
+    "maxAutoExecuteTools": 3,
+    "allowMutationWithoutApproval": false
+  },
+  "results": {
+    "largeResultRowThreshold": 100,
+    "previewRowLimit": 20,
+    "maxInlineText": 1200
+  },
+  "remoteHttp": {
+    "port": 3333,
+    "publicBaseUrl": "http://localhost:3333",
+    "requireBearerAuth": false
+  },
+  "scanner": {
+    "enableAstScanning": true,
+    "enableOpenApiImport": true,
+    "enableRuntimeProbeValidation": true,
+    "probeMethods": [
+      "GET"
+    ],
+    "probeTimeoutMs": 3000,
+    "probeSampleCountPerService": 6,
+    "probeSkipPaths": [
+      "/health"
+    ],
+    "minimumToolConfidenceForAutoPublish": 0.55,
+    "minimumSchemaConfidenceForAutoPublish": 0.45
+  }
+}

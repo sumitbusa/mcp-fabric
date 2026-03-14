@@ -1,0 +1,131 @@
+{
+  "updatedAt": "2026-03-14T09:08:50.793Z",
+  "events": [
+    {
+      "auditId": "156a96bd-5844-45ed-8616-c5255a71a83c",
+      "at": "2026-03-14T09:07:26.187Z",
+      "eventType": "query_resolved",
+      "payload": {
+        "planId": "plan_b7929b0a-883b-4132-8bb6-8c2d9b4fd3e6",
+        "sessionId": null,
+        "query": "Show money market rates for USD and explain the tenor curve",
+        "autoExecute": false,
+        "executed": false
+      }
+    },
+    {
+      "auditId": "a74b02c8-6de9-492c-9ac1-7a3fa7202878",
+      "at": "2026-03-14T09:07:32.509Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "money_market_service_listmoneymarketrates",
+        "args": {
+          "currency": "USD"
+        },
+        "status": 200,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "b68c3f79-7555-4f52-84f2-03d899e68a45",
+      "at": "2026-03-14T09:08:10.761Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "money_market_service_post_money_market_deals_search",
+        "args": {
+          "body": {
+            "counterpartyId": "CP-001"
+          }
+        },
+        "status": 200,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "039b6ea4-d732-493e-8199-1a2cdc33d2ff",
+      "at": "2026-03-14T09:08:24.675Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "reference_data_service_get_issuer",
+        "args": {
+          "issuerId": "Bank A"
+        },
+        "status": 404,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "2f5c7496-63ec-46c1-98ff-6497438a827a",
+      "at": "2026-03-14T09:08:24.677Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "reference_data_service_get_investor",
+        "args": {
+          "investorId": "CP-001"
+        },
+        "status": 404,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "d2713fc4-ad92-47e8-8aab-bd57ff94482f",
+      "at": "2026-03-14T09:08:45.392Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "money_market_service_get_money_market_deals",
+        "args": {
+          "currency": "USD"
+        },
+        "status": 200,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "cbbd578c-05d5-4fbd-b946-9b52a561b726",
+      "at": "2026-03-14T09:08:45.448Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "dtcc_intraday_service_get_bulk_positions",
+        "args": {
+          "count": 100
+        },
+        "status": 200,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "7b1885ee-531b-4124-af62-636e1705ed0c",
+      "at": "2026-03-14T09:08:50.788Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "reference_data_service_get_issuer",
+        "args": {
+          "issuerId": "Corp B"
+        },
+        "status": 404,
+        "source": "live_api"
+      }
+    },
+    {
+      "auditId": "b94c34f7-b488-4480-b4c2-8b8e6995efaa",
+      "at": "2026-03-14T09:08:50.793Z",
+      "eventType": "tool_invoked",
+      "payload": {
+        "sessionId": null,
+        "toolName": "reference_data_service_get_issuer",
+        "args": {
+          "issuerId": "Bank A"
+        },
+        "status": 404,
+        "source": "live_api"
+      }
+    }
+  ]
+}

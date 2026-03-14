@@ -1,0 +1,422 @@
+{
+  "generatedAt": "2026-03-14T09:04:59.411Z",
+  "warningCount": 28,
+  "warnings": [
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_health",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      }
+    },
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_trades_bulk",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.4,
+        "schema": 0.47,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_health",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      }
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_money_market_deals",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.4,
+        "schema": 0.47,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "post_money_market_deals_search",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      }
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_counterparties",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.26,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_counterparties_counterparty_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_exposures_counterparty_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_limits_counterparty_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.5,
+        "schema": 0.61,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "post_broker_mm_deals_search",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.42,
+        "schema": 0.49,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_intraday_view",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_investors_investor_id_activity",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_issuers_issuer_id_exposure",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_maturity_ladder",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_outstanding",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_top_accounts",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_accounts_account_id_net_flow",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_obligations",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "post_dtcc_intraday_obligations_search",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.42,
+        "schema": 0.41,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_outstanding",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_positions_bulk",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_summary",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_accounts_account_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_counterparties_counterparty_id_link",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_investors",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_investors_investor_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_issuers",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_issuers_issuer_id",
+      "issue": "confidence_below_publish_threshold",
+      "severity": "info",
+      "detail": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      }
+    }
+  ]
+}

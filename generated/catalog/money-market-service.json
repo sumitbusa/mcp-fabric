@@ -1,0 +1,669 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "money-market-service",
+  "serviceId": "money-market-service",
+  "baseUrl": "http://localhost:4020",
+  "scannedAt": "2026-03-14T09:04:59.378Z",
+  "rootDir": "apps/demo-services/money-market-service",
+  "serviceRootDir": "apps/demo-services/money-market-service",
+  "domainKeywords": [
+    "money market",
+    "rate",
+    "rates",
+    "deal",
+    "deals",
+    "instrument",
+    "counterparty",
+    "limit"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "openapi": 3,
+    "express-ast": 3
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/money-market-service",
+      "name": "money-market-service catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for money-market-service"
+    },
+    {
+      "uri": "catalog://service/money-market-service/openapi-derived",
+      "name": "money-market-service derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/money-market-service/schemas",
+      "name": "money-market-service schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {},
+  "tools": [
+    {
+      "name": "get_counterparties_counterparty_id_limits",
+      "operationId": "getCounterpartyIntradayLimit",
+      "title": "Get counterparty intraday limit",
+      "description": "GET /counterparties/:counterpartyId/limits — get_counterparties_counterparty_id_limits for counterparties, limits",
+      "method": "GET",
+      "path": "/counterparties/{counterpartyId}/limits",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/money-market-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "counterparties",
+        "limits",
+        "counterparty",
+        "limit"
+      ],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/get_counterparties_counterparty_id_limits",
+        "catalog://schemas/money-market-service/get_counterparties_counterparty_id_limits"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string",
+            "description": "path parameter: counterpartyId"
+          },
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": [
+          "counterpartyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "counterpartyId": {
+            "type": "string"
+          },
+          "intradayLimit": {
+            "type": "number"
+          },
+          "utilized": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "counterpartyId",
+          "intradayLimit",
+          "utilized"
+        ]
+      },
+      "requiredEntityTypes": [
+        "counterpartyId"
+      ],
+      "producedEntityTypes": [
+        "counterpartyId",
+        "limitId"
+      ],
+      "semanticKeywords": [
+        "counterpartyId",
+        "limitId",
+        "Get counterparty intraday limit",
+        "getCounterpartyIntradayLimit",
+        "counterparty",
+        "limit"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "counterpartyId": "CP-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "counterpartyId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "counterpartyId",
+          "limitId",
+          "Get counterparty intraday limit",
+          "getCounterpartyIntradayLimit",
+          "counterparty",
+          "limit"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.77,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_health",
+      "operationId": "get_health",
+      "title": "get_health",
+      "description": "GET /health — get_health for resource",
+      "method": "GET",
+      "path": "/health",
+      "framework": "express-ast",
+      "sourceFile": "index.js",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/get_health",
+        "catalog://schemas/money-market-service/get_health"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [],
+      "semanticKeywords": [],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true
+      },
+      "confidence": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "path skipped by probe policy"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_money_market_deals",
+      "operationId": "get_money_market_deals",
+      "title": "get_money_market_deals",
+      "description": "GET /money-market/deals — get_money_market_deals for money-market, deals",
+      "method": "GET",
+      "path": "/money-market/deals",
+      "framework": "express-ast",
+      "sourceFile": "index.js",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "money-market",
+        "deals"
+      ],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/get_money_market_deals",
+        "catalog://schemas/money-market-service/get_money_market_deals"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "dealId"
+      ],
+      "semanticKeywords": [
+        "currency",
+        "dealId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "currency",
+          "dealId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true
+      },
+      "confidence": {
+        "tool": 0.4,
+        "schema": 0.47,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "post_money_market_deals_search",
+      "operationId": "post_money_market_deals_search",
+      "title": "post_money_market_deals_search",
+      "description": "POST /money-market/deals/search — post_money_market_deals_search for money-market, deals",
+      "method": "POST",
+      "path": "/money-market/deals/search",
+      "framework": "express-ast",
+      "sourceFile": "index.js",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "money-market",
+        "deals"
+      ],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/post_money_market_deals_search",
+        "catalog://schemas/money-market-service/post_money_market_deals_search"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "counterpartyId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "counterpartyId"
+            ]
+          }
+        },
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "dealId"
+      ],
+      "semanticKeywords": [
+        "counterpartyId",
+        "dealId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "counterpartyId",
+          "dealId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true
+      },
+      "confidence": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "method POST not enabled for probing"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_money_market_instruments_instrument_id",
+      "operationId": "getInstrumentById",
+      "title": "Get money market instrument",
+      "description": "GET /money-market/instruments/:instrumentId — get_money_market_instruments_instrument_id for money-market, instruments",
+      "method": "GET",
+      "path": "/money-market/instruments/{instrumentId}",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/money-market-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "money-market",
+        "instruments",
+        "instrument"
+      ],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/get_money_market_instruments_instrument_id",
+        "catalog://schemas/money-market-service/get_money_market_instruments_instrument_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "instrumentId": {
+            "type": "string",
+            "description": "path parameter: instrumentId"
+          },
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": [
+          "instrumentId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "instrumentId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "tenor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "instrumentId",
+          "type"
+        ]
+      },
+      "requiredEntityTypes": [
+        "instrumentId"
+      ],
+      "producedEntityTypes": [
+        "instrumentId"
+      ],
+      "semanticKeywords": [
+        "instrumentId",
+        "Get money market instrument",
+        "getInstrumentById",
+        "instrument"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "instrumentId": "CD-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "instrumentId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "instrumentId",
+          "Get money market instrument",
+          "getInstrumentById",
+          "instrument"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.77,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_money_market_rates",
+      "operationId": "listMoneyMarketRates",
+      "title": "List money market rates",
+      "description": "GET /money-market/rates — get_money_market_rates for money-market, rates",
+      "method": "GET",
+      "path": "/money-market/rates",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/money-market-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "money-market",
+        "rates"
+      ],
+      "resourceUris": [
+        "catalog://service/money-market-service",
+        "catalog://tool/money-market-service/get_money_market_rates",
+        "catalog://schemas/money-market-service/get_money_market_rates"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "currency"
+      ],
+      "semanticKeywords": [
+        "currency",
+        "List money market rates",
+        "listMoneyMarketRates",
+        "rates",
+        "money-market"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "currency",
+          "List money market rates",
+          "listMoneyMarketRates",
+          "rates",
+          "money-market"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.69,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 2,
+    "fingerprint": "108e720dd71e3c8253a23984461972ab77324d08",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection",
+      "openapi-import"
+    ],
+    "openApiSources": [
+      "apps/demo-services/money-market-service/openapi.json"
+    ],
+    "avgToolConfidence": 0.54,
+    "avgSchemaConfidence": 0.64,
+    "sampleValues": {}
+  }
+}

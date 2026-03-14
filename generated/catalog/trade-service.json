@@ -1,0 +1,850 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "trade-service",
+  "serviceId": "trade-service",
+  "baseUrl": "http://localhost:4010",
+  "scannedAt": "2026-03-14T09:04:59.360Z",
+  "rootDir": "apps/demo-services/trade-service",
+  "serviceRootDir": "apps/demo-services/trade-service",
+  "domainKeywords": [
+    "trade",
+    "trades",
+    "position",
+    "settlement",
+    "portfolio"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "express-ast": 2,
+    "openapi": 5
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/trade-service",
+      "name": "trade-service catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for trade-service"
+    },
+    {
+      "uri": "catalog://service/trade-service/openapi-derived",
+      "name": "trade-service derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/trade-service/schemas",
+      "name": "trade-service schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {},
+  "tools": [
+    {
+      "name": "get_health",
+      "operationId": "get_health",
+      "title": "get_health",
+      "description": "GET /health — get_health for resource",
+      "method": "GET",
+      "path": "/health",
+      "framework": "express-ast",
+      "sourceFile": "index.js",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_health",
+        "catalog://schemas/trade-service/get_health"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [],
+      "semanticKeywords": [],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true
+      },
+      "confidence": {
+        "tool": 0.52,
+        "schema": 0.57,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "path skipped by probe policy"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_positions",
+      "operationId": "listPositions",
+      "title": "List positions, optionally filtered by portfolio",
+      "description": "List positions, optionally filtered by portfolio",
+      "method": "GET",
+      "path": "/positions",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/trade-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "positions",
+        "position",
+        "portfolio"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_positions",
+        "catalog://schemas/trade-service/get_positions"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "portfolio": {
+            "type": "string",
+            "description": "query parameter: portfolio"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "portfolio": {
+            "type": "string"
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instrument": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "instrument",
+                "amount",
+                "currency"
+              ]
+            }
+          }
+        },
+        "required": [
+          "positions"
+        ],
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [],
+      "semanticKeywords": [
+        "portfolio",
+        "List positions, optionally filtered by portfolio",
+        "listPositions",
+        "position"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "portfolio"
+        ],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "portfolio",
+          "List positions, optionally filtered by portfolio",
+          "listPositions",
+          "position"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.77,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_trades",
+      "operationId": "listTrades",
+      "title": "List all trades",
+      "description": "GET /trades — get_trades for trades",
+      "method": "GET",
+      "path": "/trades",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/trade-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "trades",
+        "trade"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_trades",
+        "catalog://schemas/trade-service/get_trades"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "tradeId"
+      ],
+      "semanticKeywords": [
+        "tradeId",
+        "List all trades",
+        "listTrades",
+        "trade"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "tradeId",
+          "List all trades",
+          "listTrades",
+          "trade"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.69,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_trades_trade_id",
+      "operationId": "getTradeById",
+      "title": "Get a trade by id",
+      "description": "GET /trades/:tradeId — get_trades_trade_id for trades",
+      "method": "GET",
+      "path": "/trades/{tradeId}",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/trade-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "trades",
+        "trade"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_trades_trade_id",
+        "catalog://schemas/trade-service/get_trades_trade_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tradeId": {
+            "type": "string",
+            "description": "path parameter: tradeId"
+          },
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": [
+          "tradeId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "tradeId": {
+            "type": "string"
+          },
+          "portfolio": {
+            "type": "string"
+          },
+          "instrument": {
+            "type": "string"
+          },
+          "counterpartyId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "tradeId",
+          "counterpartyId",
+          "amount",
+          "currency"
+        ]
+      },
+      "requiredEntityTypes": [
+        "tradeId"
+      ],
+      "producedEntityTypes": [
+        "tradeId"
+      ],
+      "semanticKeywords": [
+        "tradeId",
+        "Get a trade by id",
+        "getTradeById",
+        "trade"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "tradeId": "T-1001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "tradeId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "tradeId",
+          "Get a trade by id",
+          "getTradeById",
+          "trade"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.77,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_trades_trade_id_settlement",
+      "operationId": "getTradeSettlement",
+      "title": "Get settlement details for a trade",
+      "description": "GET /trades/:tradeId/settlement — get_trades_trade_id_settlement for trades, settlement",
+      "method": "GET",
+      "path": "/trades/{tradeId}/settlement",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/trade-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "trades",
+        "settlement",
+        "trade"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_trades_trade_id_settlement",
+        "catalog://schemas/trade-service/get_trades_trade_id_settlement"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tradeId": {
+            "type": "string",
+            "description": "path parameter: tradeId"
+          },
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": [
+          "tradeId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "tradeId": {
+            "type": "string"
+          },
+          "settlementDate": {
+            "type": "string"
+          },
+          "cashAccount": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "tradeId",
+          "status"
+        ]
+      },
+      "requiredEntityTypes": [
+        "tradeId"
+      ],
+      "producedEntityTypes": [
+        "tradeId",
+        "settlementId"
+      ],
+      "semanticKeywords": [
+        "tradeId",
+        "settlementId",
+        "Get settlement details for a trade",
+        "getTradeSettlement",
+        "trade",
+        "settlement"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "tradeId": "T-1001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "tradeId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "tradeId",
+          "settlementId",
+          "Get settlement details for a trade",
+          "getTradeSettlement",
+          "trade",
+          "settlement"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.6,
+        "schema": 0.77,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_trades_bulk",
+      "operationId": "get_trades_bulk",
+      "title": "get_trades_bulk",
+      "description": "GET /trades/bulk — get_trades_bulk for trades, bulk",
+      "method": "GET",
+      "path": "/trades/bulk",
+      "framework": "express-ast",
+      "sourceFile": "index.js",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "trades",
+        "bulk"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/get_trades_bulk",
+        "catalog://schemas/trade-service/get_trades_bulk"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "string",
+            "description": "Query parameter: count"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "tradeId"
+      ],
+      "semanticKeywords": [
+        "count",
+        "tradeId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "count"
+        ],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "count",
+          "tradeId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true
+      },
+      "confidence": {
+        "tool": 0.4,
+        "schema": 0.47,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "post_trades_search",
+      "operationId": "searchTrades",
+      "title": "Search trades by counterparty and status",
+      "description": "POST /trades/search — post_trades_search for trades",
+      "method": "POST",
+      "path": "/trades/search",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/trade-service/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "trades",
+        "trade",
+        "search"
+      ],
+      "resourceUris": [
+        "catalog://service/trade-service",
+        "catalog://tool/trade-service/post_trades_search",
+        "catalog://schemas/trade-service/post_trades_search"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "counterpartyId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "trades": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tradeId": {
+                  "type": "string"
+                },
+                "portfolio": {
+                  "type": "string"
+                },
+                "instrument": {
+                  "type": "string"
+                },
+                "counterpartyId": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tradeId",
+                "counterpartyId",
+                "amount",
+                "currency"
+              ]
+            }
+          }
+        },
+        "required": [
+          "count",
+          "trades"
+        ],
+        "additionalProperties": true
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "tradeId"
+      ],
+      "semanticKeywords": [
+        "counterpartyId",
+        "status",
+        "tradeId",
+        "Search trades by counterparty and status",
+        "searchTrades",
+        "trade",
+        "search"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "from": "openapi",
+          "example": {
+            "counterpartyId": "CP-001",
+            "status": "SETTLED"
+          }
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": null,
+        "semanticKeywords": [
+          "counterpartyId",
+          "status",
+          "tradeId",
+          "Search trades by counterparty and status",
+          "searchTrades",
+          "trade",
+          "search"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "astRoute": true,
+        "astSchema": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.72,
+        "schema": 0.87,
+        "reasons": [
+          "route corroborated by AST scan",
+          "request and response shapes inferred from handler AST",
+          "OpenAPI contract matched the route"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "method POST not enabled for probing"
+      },
+      "publishReady": true
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 2,
+    "fingerprint": "84887701179914546cdc42117312818dc710f810",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection",
+      "openapi-import"
+    ],
+    "openApiSources": [
+      "apps/demo-services/trade-service/openapi.json"
+    ],
+    "avgToolConfidence": 0.58,
+    "avgSchemaConfidence": 0.7,
+    "sampleValues": {}
+  }
+}

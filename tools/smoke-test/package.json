@@ -1,0 +1,8 @@
+{
+  "name": "mcp-fabric-smoke-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-03-14T09:04:59.412Z",
+  "summary": {
+    "validated": 0,
+    "failed": 30,
+    "skipped": 7,
+    "disabled": 0
+  },
+  "events": [
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_positions",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_trades",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_trades_trade_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_trades_trade_id_settlement",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "trade-service",
+      "toolName": "get_trades_bulk",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_counterparties_counterparty_id_limits",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_money_market_deals",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_money_market_instruments_instrument_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "money-market-service",
+      "toolName": "get_money_market_rates",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_counterparties",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_counterparties_counterparty_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_exposures_counterparty_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "toolName": "get_risk_limits_counterparty_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_intraday_view",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_investors_investor_id_activity",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_issuers_issuer_id_exposure",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_maturity_ladder",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_outstanding",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "toolName": "get_broker_mm_top_accounts",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_accounts_account_id_net_flow",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_obligations",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_outstanding",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_positions_bulk",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "toolName": "get_dtcc_intraday_summary",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_accounts_account_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_counterparties_counterparty_id_link",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_investors",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_investors_investor_id",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_issuers",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "serviceName": "reference-data-service",
+      "toolName": "get_refdata_issuers_issuer_id",
+      "status": "failed",
+      "error": "fetch failed"
+    }
+  ]
+}

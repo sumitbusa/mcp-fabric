@@ -1,0 +1,124 @@
+{
+  "projects": {
+    "trade-service": {
+      "fingerprint": "84887701179914546cdc42117312818dc710f810",
+      "routeCount": 7,
+      "updatedAt": "2026-03-14T09:04:59.361Z",
+      "frameworkSummary": {
+        "express-ast": 2,
+        "openapi": 5
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection",
+        "openapi-import"
+      ],
+      "avgToolConfidence": 0.58,
+      "avgSchemaConfidence": 0.7,
+      "openApiSources": [
+        "apps/demo-services/trade-service/openapi.json"
+      ]
+    },
+    "money-market-service": {
+      "fingerprint": "108e720dd71e3c8253a23984461972ab77324d08",
+      "routeCount": 6,
+      "updatedAt": "2026-03-14T09:04:59.378Z",
+      "frameworkSummary": {
+        "openapi": 3,
+        "express-ast": 3
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection",
+        "openapi-import"
+      ],
+      "avgToolConfidence": 0.54,
+      "avgSchemaConfidence": 0.64,
+      "openApiSources": [
+        "apps/demo-services/money-market-service/openapi.json"
+      ]
+    },
+    "settlement-risk-spring": {
+      "fingerprint": "0577c101d7b2cb55335ab040e7ab61cea1648999",
+      "routeCount": 5,
+      "updatedAt": "2026-03-14T09:04:59.389Z",
+      "frameworkSummary": {
+        "openapi": 2,
+        "spring": 3
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection",
+        "openapi-import"
+      ],
+      "avgToolConfidence": 0.4,
+      "avgSchemaConfidence": 0.42,
+      "openApiSources": [
+        "apps/demo-services/settlement-risk-spring/openapi.json"
+      ]
+    },
+    "broker-money-market-service": {
+      "fingerprint": "8aa533cabb22e4a038b6a3fd3285dfe4fa9dafac",
+      "routeCount": 7,
+      "updatedAt": "2026-03-14T09:04:59.399Z",
+      "frameworkSummary": {
+        "spring": 7
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection"
+      ],
+      "avgToolConfidence": 0.32,
+      "avgSchemaConfidence": 0.4,
+      "openApiSources": []
+    },
+    "dtcc-intraday-service": {
+      "fingerprint": "88a05fae0a9b59262f652832eca6f481aba9cf07",
+      "routeCount": 6,
+      "updatedAt": "2026-03-14T09:04:59.404Z",
+      "frameworkSummary": {
+        "spring": 6
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection"
+      ],
+      "avgToolConfidence": 0.32,
+      "avgSchemaConfidence": 0.38,
+      "openApiSources": []
+    },
+    "reference-data-service": {
+      "fingerprint": "23de95410968c4547cce004aab590266aa3eff4c",
+      "routeCount": 6,
+      "updatedAt": "2026-03-14T09:04:59.410Z",
+      "frameworkSummary": {
+        "spring": 6
+      },
+      "source": "generator-cli",
+      "generatorVersion": "0.5.0",
+      "detectionStages": [
+        "static-route-scan",
+        "ast-analysis",
+        "source-reflection"
+      ],
+      "avgToolConfidence": 0.3,
+      "avgSchemaConfidence": 0.36,
+      "openApiSources": []
+    }
+  }
+}

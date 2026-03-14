@@ -1,0 +1,802 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "reference-data-service",
+  "serviceId": "reference-data-service",
+  "baseUrl": "http://localhost:4060",
+  "scannedAt": "2026-03-14T09:04:59.410Z",
+  "rootDir": "apps/demo-services/reference-data-service/src/main/java",
+  "serviceRootDir": "apps/demo-services/reference-data-service",
+  "domainKeywords": [
+    "reference data",
+    "refdata",
+    "issuer",
+    "investor",
+    "account",
+    "lei",
+    "sector",
+    "rating",
+    "mapping"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "spring": 6
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/reference-data-service",
+      "name": "reference-data-service catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for reference-data-service"
+    },
+    {
+      "uri": "catalog://service/reference-data-service/openapi-derived",
+      "name": "reference-data-service derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/reference-data-service/schemas",
+      "name": "reference-data-service schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {},
+  "tools": [
+    {
+      "name": "get_refdata_accounts_account_id",
+      "operationId": "get_account",
+      "title": "get_refdata_accounts_account_id",
+      "description": "GET /refdata/accounts/{accountId} — get account for refdata, accounts",
+      "method": "GET",
+      "path": "/refdata/accounts/{accountId}",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "accounts"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_accounts_account_id",
+        "catalog://schemas/reference-data-service/get_refdata_accounts_account_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter: accountId"
+          }
+        },
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string"
+          },
+          "accountName": {
+            "type": "string"
+          },
+          "accountType": {
+            "type": "string"
+          },
+          "desk": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "investorId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accountId",
+          "accountName",
+          "accountType",
+          "desk",
+          "region",
+          "investorId"
+        ],
+        "xSource": "com/demo/refdata/model/AccountRefData.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "accountId"
+      ],
+      "producedEntityTypes": [
+        "accountId"
+      ],
+      "semanticKeywords": [
+        "getAccount",
+        "accountId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "accountId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "accountId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<AccountRefData>",
+        "semanticKeywords": [
+          "getAccount",
+          "accountId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_refdata_counterparties_counterparty_id_link",
+      "operationId": "get_counterparty_link",
+      "title": "get_refdata_counterparties_counterparty_id_link",
+      "description": "GET /refdata/counterparties/{counterpartyId}/link — get counterparty link for refdata, counterparties, link",
+      "method": "GET",
+      "path": "/refdata/counterparties/{counterpartyId}/link",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "counterparties",
+        "link"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_counterparties_counterparty_id_link",
+        "catalog://schemas/reference-data-service/get_refdata_counterparties_counterparty_id_link"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string",
+            "description": "Path parameter: counterpartyId"
+          }
+        },
+        "required": [
+          "counterpartyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string"
+          },
+          "investorId": {
+            "type": "string"
+          },
+          "issuerId": {
+            "type": "string"
+          },
+          "accountId": {
+            "type": "string"
+          },
+          "legalEntity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "counterpartyId",
+          "investorId",
+          "issuerId",
+          "accountId",
+          "legalEntity"
+        ],
+        "xSource": "com/demo/refdata/model/CounterpartyLink.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "counterpartyId"
+      ],
+      "producedEntityTypes": [
+        "counterpartyId"
+      ],
+      "semanticKeywords": [
+        "getCounterpartyLink",
+        "counterpartyId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "counterpartyId": "CP-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "counterpartyId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<CounterpartyLink>",
+        "semanticKeywords": [
+          "getCounterpartyLink",
+          "counterpartyId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_refdata_investors",
+      "operationId": "list_investors",
+      "title": "get_refdata_investors",
+      "description": "GET /refdata/investors — list investors for refdata, investors",
+      "method": "GET",
+      "path": "/refdata/investors",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "investors"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_investors",
+        "catalog://schemas/reference-data-service/get_refdata_investors"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "Query parameter: country"
+          },
+          "investorType": {
+            "type": "string",
+            "description": "Query parameter: investorType"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "investorId": {
+              "type": "string"
+            },
+            "investorName": {
+              "type": "string"
+            },
+            "investorType": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "lei": {
+              "type": "string"
+            },
+            "relationshipManager": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "investorId",
+            "investorName",
+            "investorType",
+            "country",
+            "lei",
+            "relationshipManager"
+          ],
+          "xSource": "com/demo/refdata/model/InvestorRefData.java",
+          "xModelLanguage": "java"
+        }
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "investorId"
+      ],
+      "semanticKeywords": [
+        "listInvestors",
+        "country",
+        "investorType",
+        "investorId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "country",
+          "investorType"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<List<InvestorRefData>>",
+        "semanticKeywords": [
+          "listInvestors",
+          "country",
+          "investorType",
+          "investorId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_refdata_investors_investor_id",
+      "operationId": "get_investor",
+      "title": "get_refdata_investors_investor_id",
+      "description": "GET /refdata/investors/{investorId} — get investor for refdata, investors",
+      "method": "GET",
+      "path": "/refdata/investors/{investorId}",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "investors"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_investors_investor_id",
+        "catalog://schemas/reference-data-service/get_refdata_investors_investor_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string",
+            "description": "Path parameter: investorId"
+          }
+        },
+        "required": [
+          "investorId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string"
+          },
+          "investorName": {
+            "type": "string"
+          },
+          "investorType": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "lei": {
+            "type": "string"
+          },
+          "relationshipManager": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "investorId",
+          "investorName",
+          "investorType",
+          "country",
+          "lei",
+          "relationshipManager"
+        ],
+        "xSource": "com/demo/refdata/model/InvestorRefData.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "investorId"
+      ],
+      "producedEntityTypes": [
+        "investorId"
+      ],
+      "semanticKeywords": [
+        "getInvestor",
+        "investorId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "investorId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "investorId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<InvestorRefData>",
+        "semanticKeywords": [
+          "getInvestor",
+          "investorId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_refdata_issuers",
+      "operationId": "list_issuers",
+      "title": "get_refdata_issuers",
+      "description": "GET /refdata/issuers — list issuers for refdata, issuers",
+      "method": "GET",
+      "path": "/refdata/issuers",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "issuers"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_issuers",
+        "catalog://schemas/reference-data-service/get_refdata_issuers"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "Query parameter: country"
+          },
+          "sector": {
+            "type": "string",
+            "description": "Query parameter: sector"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "issuerId": {
+              "type": "string"
+            },
+            "issuerName": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "sector": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "lei": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "issuerId",
+            "issuerName",
+            "country",
+            "sector",
+            "rating",
+            "lei"
+          ],
+          "xSource": "com/demo/refdata/model/IssuerRefData.java",
+          "xModelLanguage": "java"
+        }
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "issuerId"
+      ],
+      "semanticKeywords": [
+        "listIssuers",
+        "country",
+        "sector",
+        "issuerId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "country",
+          "sector"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<List<IssuerRefData>>",
+        "semanticKeywords": [
+          "listIssuers",
+          "country",
+          "sector",
+          "issuerId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_refdata_issuers_issuer_id",
+      "operationId": "get_issuer",
+      "title": "get_refdata_issuers_issuer_id",
+      "description": "GET /refdata/issuers/{issuerId} — get issuer for refdata, issuers",
+      "method": "GET",
+      "path": "/refdata/issuers/{issuerId}",
+      "framework": "spring",
+      "sourceFile": "com/demo/refdata/controller/ReferenceDataController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "refdata",
+        "issuers"
+      ],
+      "resourceUris": [
+        "catalog://service/reference-data-service",
+        "catalog://tool/reference-data-service/get_refdata_issuers_issuer_id",
+        "catalog://schemas/reference-data-service/get_refdata_issuers_issuer_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issuerId": {
+            "type": "string",
+            "description": "Path parameter: issuerId"
+          }
+        },
+        "required": [
+          "issuerId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "issuerId": {
+            "type": "string"
+          },
+          "issuerName": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "sector": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "string"
+          },
+          "lei": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "issuerId",
+          "issuerName",
+          "country",
+          "sector",
+          "rating",
+          "lei"
+        ],
+        "xSource": "com/demo/refdata/model/IssuerRefData.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "issuerId"
+      ],
+      "producedEntityTypes": [
+        "issuerId"
+      ],
+      "semanticKeywords": [
+        "getIssuer",
+        "issuerId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "issuerId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "issuerId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<IssuerRefData>",
+        "semanticKeywords": [
+          "getIssuer",
+          "issuerId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 5,
+    "fingerprint": "23de95410968c4547cce004aab590266aa3eff4c",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection"
+    ],
+    "openApiSources": [],
+    "avgToolConfidence": 0.3,
+    "avgSchemaConfidence": 0.36,
+    "sampleValues": {}
+  }
+}

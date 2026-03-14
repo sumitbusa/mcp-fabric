@@ -1,0 +1,65 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Settlement Risk Service", "version": "1.0.0" },
+  "paths": {
+    "/risk/limits/{counterpartyId}": {
+      "get": {
+        "operationId": "getCounterpartyLimit",
+        "summary": "Get counterparty risk limit",
+        "tags": ["risk", "limit"],
+        "parameters": [
+          { "name": "counterpartyId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Limit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CounterpartyRiskLimit" } } } }
+        }
+      }
+    },
+    "/risk/breaches/search": {
+      "post": {
+        "operationId": "searchBreaches",
+        "summary": "Search breaches by counterparty or severity",
+        "tags": ["risk", "breach"],
+        "requestBody": {
+          "required": false,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BreachSearchRequest" }, "example": { "counterpartyId": "CP-001", "severity": "HIGH" } } }
+        },
+        "responses": {
+          "200": { "description": "Breaches", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/BreachRecord" } } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CounterpartyRiskLimit": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": { "type": "string" },
+          "currency": { "type": "string" },
+          "limit": { "type": "number" },
+          "utilized": { "type": "number" }
+        },
+        "required": ["counterpartyId", "limit", "utilized"]
+      },
+      "BreachSearchRequest": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": { "type": "string" },
+          "severity": { "type": "string" },
+          "fromDate": { "type": "string" }
+        }
+      },
+      "BreachRecord": {
+        "type": "object",
+        "properties": {
+          "breachId": { "type": "string" },
+          "counterpartyId": { "type": "string" },
+          "severity": { "type": "string" },
+          "openedAt": { "type": "string" }
+        },
+        "required": ["breachId", "counterpartyId"]
+      }
+    }
+  }
+}

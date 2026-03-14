@@ -1,0 +1,986 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "broker-money-market-service",
+  "serviceId": "broker-money-market-service",
+  "baseUrl": "http://localhost:4040",
+  "scannedAt": "2026-03-14T09:04:59.398Z",
+  "rootDir": "apps/demo-services/broker-money-market-service/src/main/java",
+  "serviceRootDir": "apps/demo-services/broker-money-market-service",
+  "domainKeywords": [
+    "broker",
+    "jpmc",
+    "jpm",
+    "money market",
+    "issuer",
+    "investor",
+    "top account",
+    "maturity",
+    "outstanding",
+    "broker outstanding"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "spring": 7
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/broker-money-market-service",
+      "name": "broker-money-market-service catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for broker-money-market-service"
+    },
+    {
+      "uri": "catalog://service/broker-money-market-service/openapi-derived",
+      "name": "broker-money-market-service derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/broker-money-market-service/schemas",
+      "name": "broker-money-market-service schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {
+    "BrokerDealSearchRequest": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "accountId": {
+          "type": "string"
+        },
+        "investorId": {
+          "type": "string"
+        },
+        "issuerId": {
+          "type": "string"
+        },
+        "maturityBucket": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "currency",
+        "accountId",
+        "investorId",
+        "issuerId",
+        "maturityBucket",
+        "status",
+        "limit"
+      ],
+      "xSource": "com/demo/broker/model/BrokerDealSearchRequest.java",
+      "xModelLanguage": "java"
+    }
+  },
+  "tools": [
+    {
+      "name": "post_broker_mm_deals_search",
+      "operationId": "search_deals",
+      "title": "post_broker_mm_deals_search",
+      "description": "POST /broker/mm/deals/search — search deals for broker, mm, deals",
+      "method": "POST",
+      "path": "/broker/mm/deals/search",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "deals"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/post_broker_mm_deals_search",
+        "catalog://schemas/broker-money-market-service/post_broker_mm_deals_search"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "accountId": {
+                "type": "string"
+              },
+              "investorId": {
+                "type": "string"
+              },
+              "issuerId": {
+                "type": "string"
+              },
+              "maturityBucket": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "currency",
+              "accountId",
+              "investorId",
+              "issuerId",
+              "maturityBucket",
+              "status",
+              "limit"
+            ],
+            "xSource": "com/demo/broker/model/BrokerDealSearchRequest.java",
+            "xModelLanguage": "java"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "dealCount": {
+            "type": "integer"
+          },
+          "totalOutstanding": {
+            "type": "number"
+          },
+          "topAccountId": {
+            "type": "string"
+          },
+          "topInvestorId": {
+            "type": "string"
+          },
+          "topIssuerId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "dealCount",
+          "totalOutstanding",
+          "topAccountId",
+          "topInvestorId",
+          "topIssuerId"
+        ],
+        "xSource": "com/demo/broker/model/OutstandingSummaryResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "dealId"
+      ],
+      "semanticKeywords": [
+        "searchDeals",
+        "request",
+        "dealId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": "BrokerDealSearchRequest",
+        "responseType": "ResponseEntity<OutstandingSummaryResponse>",
+        "semanticKeywords": [
+          "searchDeals",
+          "request",
+          "dealId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.42,
+        "schema": 0.49,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "method POST not enabled for probing"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_intraday_view",
+      "operationId": "get_intraday_view",
+      "title": "get_broker_mm_intraday_view",
+      "description": "GET /broker/mm/intraday-view — get intraday view for broker, mm, intraday-view",
+      "method": "GET",
+      "path": "/broker/mm/intraday-view",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "intraday-view"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_intraday_view",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_intraday_view"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "broker": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "intradayTimestamp": {
+            "type": "string"
+          },
+          "openDealCount": {
+            "type": "integer"
+          },
+          "openOutstanding": {
+            "type": "number"
+          },
+          "peakAccountId": {
+            "type": "string"
+          },
+          "peakInvestorId": {
+            "type": "string"
+          },
+          "peakIssuerId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "broker",
+          "currency",
+          "intradayTimestamp",
+          "openDealCount",
+          "openOutstanding",
+          "peakAccountId",
+          "peakInvestorId",
+          "peakIssuerId"
+        ],
+        "xSource": "com/demo/broker/model/BrokerIntradayViewResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [],
+      "semanticKeywords": [
+        "getIntradayView",
+        "currency"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<BrokerIntradayViewResponse>",
+        "semanticKeywords": [
+          "getIntradayView",
+          "currency"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_investors_investor_id_activity",
+      "operationId": "get_investor_activity",
+      "title": "get_broker_mm_investors_investor_id_activity",
+      "description": "GET /broker/mm/investors/{investorId}/activity — get investor activity for broker, mm, investors, activity",
+      "method": "GET",
+      "path": "/broker/mm/investors/{investorId}/activity",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "investors",
+        "activity"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_investors_investor_id_activity",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_investors_investor_id_activity"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string",
+            "description": "Path parameter: investorId"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": [
+          "investorId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "dealCount": {
+            "type": "integer"
+          },
+          "totalOutstanding": {
+            "type": "number"
+          },
+          "topIssuerId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "investorId",
+          "currency",
+          "dealCount",
+          "totalOutstanding",
+          "topIssuerId"
+        ],
+        "xSource": "com/demo/broker/model/InvestorActivityResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "investorId"
+      ],
+      "producedEntityTypes": [
+        "investorId"
+      ],
+      "semanticKeywords": [
+        "getInvestorActivity",
+        "investorId",
+        "currency"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "investorId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "investorId"
+        ],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<InvestorActivityResponse>",
+        "semanticKeywords": [
+          "getInvestorActivity",
+          "investorId",
+          "currency"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_issuers_issuer_id_exposure",
+      "operationId": "get_issuer_exposure",
+      "title": "get_broker_mm_issuers_issuer_id_exposure",
+      "description": "GET /broker/mm/issuers/{issuerId}/exposure — get issuer exposure for broker, mm, issuers, exposure",
+      "method": "GET",
+      "path": "/broker/mm/issuers/{issuerId}/exposure",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "issuers",
+        "exposure"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_issuers_issuer_id_exposure",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_issuers_issuer_id_exposure"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issuerId": {
+            "type": "string",
+            "description": "Path parameter: issuerId"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": [
+          "issuerId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "issuerId": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "dealCount": {
+            "type": "integer"
+          },
+          "totalOutstanding": {
+            "type": "number"
+          },
+          "topAccountId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "issuerId",
+          "currency",
+          "dealCount",
+          "totalOutstanding",
+          "topAccountId"
+        ],
+        "xSource": "com/demo/broker/model/IssuerExposureResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "issuerId"
+      ],
+      "producedEntityTypes": [
+        "issuerId"
+      ],
+      "semanticKeywords": [
+        "getIssuerExposure",
+        "issuerId",
+        "currency"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "issuerId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "issuerId"
+        ],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<IssuerExposureResponse>",
+        "semanticKeywords": [
+          "getIssuerExposure",
+          "issuerId",
+          "currency"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_maturity_ladder",
+      "operationId": "get_maturity_ladder",
+      "title": "get_broker_mm_maturity_ladder",
+      "description": "GET /broker/mm/maturity-ladder — get maturity ladder for broker, mm, maturity-ladder",
+      "method": "GET",
+      "path": "/broker/mm/maturity-ladder",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "maturity-ladder"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_maturity_ladder",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_maturity_ladder"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "buckets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xTypeName": "MaturityBucketRecord"
+            }
+          }
+        },
+        "required": [
+          "currency",
+          "buckets"
+        ],
+        "xSource": "com/demo/broker/model/MaturityLadderResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "maturityDate"
+      ],
+      "semanticKeywords": [
+        "getMaturityLadder",
+        "currency",
+        "maturityDate"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<MaturityLadderResponse>",
+        "semanticKeywords": [
+          "getMaturityLadder",
+          "currency",
+          "maturityDate"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_outstanding",
+      "operationId": "get_outstanding",
+      "title": "get_broker_mm_outstanding",
+      "description": "GET /broker/mm/outstanding — get outstanding for broker, mm, outstanding",
+      "method": "GET",
+      "path": "/broker/mm/outstanding",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "outstanding"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_outstanding",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_outstanding"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          },
+          "investorId": {
+            "type": "string",
+            "description": "Query parameter: investorId"
+          },
+          "issuerId": {
+            "type": "string",
+            "description": "Query parameter: issuerId"
+          },
+          "maturityBucket": {
+            "type": "string",
+            "description": "Query parameter: maturityBucket"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "dealCount": {
+            "type": "integer"
+          },
+          "totalOutstanding": {
+            "type": "number"
+          },
+          "topAccountId": {
+            "type": "string"
+          },
+          "topInvestorId": {
+            "type": "string"
+          },
+          "topIssuerId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "dealCount",
+          "totalOutstanding",
+          "topAccountId",
+          "topInvestorId",
+          "topIssuerId"
+        ],
+        "xSource": "com/demo/broker/model/OutstandingSummaryResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "currency"
+      ],
+      "semanticKeywords": [
+        "getOutstanding",
+        "currency",
+        "investorId",
+        "issuerId",
+        "maturityBucket"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency",
+          "investorId",
+          "issuerId",
+          "maturityBucket"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<OutstandingSummaryResponse>",
+        "semanticKeywords": [
+          "getOutstanding",
+          "currency",
+          "investorId",
+          "issuerId",
+          "maturityBucket"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_broker_mm_top_accounts",
+      "operationId": "get_top_accounts",
+      "title": "get_broker_mm_top_accounts",
+      "description": "GET /broker/mm/top-accounts — get top accounts for broker, mm, top-accounts",
+      "method": "GET",
+      "path": "/broker/mm/top-accounts",
+      "framework": "spring",
+      "sourceFile": "com/demo/broker/controller/BrokerMoneyMarketController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "broker",
+        "mm",
+        "top-accounts"
+      ],
+      "resourceUris": [
+        "catalog://service/broker-money-market-service",
+        "catalog://tool/broker-money-market-service/get_broker_mm_top_accounts",
+        "catalog://schemas/broker-money-market-service/get_broker_mm_top_accounts"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Query parameter: limit"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "accounts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xTypeName": "TopAccountRecord"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "accounts"
+        ],
+        "xSource": "com/demo/broker/model/TopAccountsResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "accountId"
+      ],
+      "semanticKeywords": [
+        "getTopAccounts",
+        "currency",
+        "limit",
+        "accountId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency",
+          "limit"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<TopAccountsResponse>",
+        "semanticKeywords": [
+          "getTopAccounts",
+          "currency",
+          "limit",
+          "accountId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 10,
+    "fingerprint": "8aa533cabb22e4a038b6a3fd3285dfe4fa9dafac",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection"
+    ],
+    "openApiSources": [],
+    "avgToolConfidence": 0.32,
+    "avgSchemaConfidence": 0.4,
+    "sampleValues": {}
+  }
+}

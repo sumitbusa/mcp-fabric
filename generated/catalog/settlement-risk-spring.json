@@ -1,0 +1,610 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "settlement-risk-spring",
+  "serviceId": "settlement-risk-spring",
+  "baseUrl": "http://localhost:4030",
+  "scannedAt": "2026-03-14T09:04:59.388Z",
+  "rootDir": "apps/demo-services/settlement-risk-spring/src/main/java",
+  "serviceRootDir": "apps/demo-services/settlement-risk-spring",
+  "domainKeywords": [
+    "risk",
+    "counterparty",
+    "limit",
+    "exposure",
+    "breach",
+    "settlement risk"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "openapi": 2,
+    "spring": 3
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/settlement-risk-spring",
+      "name": "settlement-risk-spring catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for settlement-risk-spring"
+    },
+    {
+      "uri": "catalog://service/settlement-risk-spring/openapi-derived",
+      "name": "settlement-risk-spring derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/settlement-risk-spring/schemas",
+      "name": "settlement-risk-spring schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {
+    "BreachSearchRequest": {
+      "type": "object",
+      "properties": {
+        "counterpartyId": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "fromDate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "counterpartyId",
+        "severity",
+        "fromDate"
+      ],
+      "xSource": "com/demo/risk/model/BreachSearchRequest.java",
+      "xModelLanguage": "java"
+    }
+  },
+  "tools": [
+    {
+      "name": "post_risk_breaches_search",
+      "operationId": "searchBreaches",
+      "title": "Search breaches by counterparty or severity",
+      "description": "POST /risk/breaches/search — search breaches for risk, breaches",
+      "method": "POST",
+      "path": "/risk/breaches/search",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/settlement-risk-spring/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "risk",
+        "breaches",
+        "breach"
+      ],
+      "resourceUris": [
+        "catalog://service/settlement-risk-spring",
+        "catalog://tool/settlement-risk-spring/post_risk_breaches_search",
+        "catalog://schemas/settlement-risk-spring/post_risk_breaches_search"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "counterpartyId": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "fromDate": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "breachId": {
+              "type": "string"
+            },
+            "counterpartyId": {
+              "type": "string"
+            },
+            "severity": {
+              "type": "string"
+            },
+            "openedAt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "breachId",
+            "counterpartyId",
+            "severity",
+            "openedAt"
+          ]
+        }
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "breachId"
+      ],
+      "semanticKeywords": [
+        "searchBreaches",
+        "body",
+        "breachId",
+        "Search breaches by counterparty or severity",
+        "risk",
+        "breach"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "from": "openapi",
+          "example": {
+            "counterpartyId": "CP-001",
+            "severity": "HIGH"
+          }
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": "BreachSearchRequest",
+        "responseType": "ResponseEntity<List<BreachRecord>>",
+        "semanticKeywords": [
+          "searchBreaches",
+          "body",
+          "breachId",
+          "Search breaches by counterparty or severity",
+          "risk",
+          "breach"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.62,
+        "schema": 0.63,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "OpenAPI contract matched the route"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "method POST not enabled for probing"
+      },
+      "publishReady": true
+    },
+    {
+      "name": "get_risk_counterparties",
+      "operationId": "list_counterparties",
+      "title": "get_risk_counterparties",
+      "description": "GET /risk/counterparties — list counterparties for risk, counterparties",
+      "method": "GET",
+      "path": "/risk/counterparties",
+      "framework": "spring",
+      "sourceFile": "com/demo/risk/controller/CounterpartyRiskController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "risk",
+        "counterparties"
+      ],
+      "resourceUris": [
+        "catalog://service/settlement-risk-spring",
+        "catalog://tool/settlement-risk-spring/get_risk_counterparties",
+        "catalog://schemas/settlement-risk-spring/get_risk_counterparties"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [],
+      "semanticKeywords": [
+        "listCounterparties"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<String>",
+        "semanticKeywords": [
+          "listCounterparties"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.26,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_risk_counterparties_counterparty_id",
+      "operationId": "get_counterparty",
+      "title": "get_risk_counterparties_counterparty_id",
+      "description": "GET /risk/counterparties/{counterpartyId} — get counterparty for risk, counterparties",
+      "method": "GET",
+      "path": "/risk/counterparties/{counterpartyId}",
+      "framework": "spring",
+      "sourceFile": "com/demo/risk/controller/CounterpartyRiskController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "risk",
+        "counterparties"
+      ],
+      "resourceUris": [
+        "catalog://service/settlement-risk-spring",
+        "catalog://tool/settlement-risk-spring/get_risk_counterparties_counterparty_id",
+        "catalog://schemas/settlement-risk-spring/get_risk_counterparties_counterparty_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string",
+            "description": "Path parameter: counterpartyId"
+          }
+        },
+        "required": [
+          "counterpartyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "requiredEntityTypes": [
+        "counterpartyId"
+      ],
+      "producedEntityTypes": [
+        "counterpartyId"
+      ],
+      "semanticKeywords": [
+        "getCounterparty",
+        "counterpartyId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "counterpartyId": "CP-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "counterpartyId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<String>",
+        "semanticKeywords": [
+          "getCounterparty",
+          "counterpartyId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_risk_exposures_counterparty_id",
+      "operationId": "get_counterparty_exposure",
+      "title": "get_risk_exposures_counterparty_id",
+      "description": "GET /risk/exposures/{counterpartyId} — get counterparty exposure for risk, exposures",
+      "method": "GET",
+      "path": "/risk/exposures/{counterpartyId}",
+      "framework": "spring",
+      "sourceFile": "com/demo/risk/controller/CounterpartyRiskController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "risk",
+        "exposures"
+      ],
+      "resourceUris": [
+        "catalog://service/settlement-risk-spring",
+        "catalog://tool/settlement-risk-spring/get_risk_exposures_counterparty_id",
+        "catalog://schemas/settlement-risk-spring/get_risk_exposures_counterparty_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string",
+            "description": "Path parameter: counterpartyId"
+          }
+        },
+        "required": [
+          "counterpartyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "requiredEntityTypes": [
+        "counterpartyId"
+      ],
+      "producedEntityTypes": [
+        "counterpartyId"
+      ],
+      "semanticKeywords": [
+        "getCounterpartyExposure",
+        "counterpartyId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "counterpartyId": "CP-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "counterpartyId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<String>",
+        "semanticKeywords": [
+          "getCounterpartyExposure",
+          "counterpartyId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_risk_limits_counterparty_id",
+      "operationId": "getCounterpartyLimit",
+      "title": "Get counterparty risk limit",
+      "description": "GET /risk/limits/{counterpartyId} — get counterparty limit for risk, limits",
+      "method": "GET",
+      "path": "/risk/limits/{counterpartyId}",
+      "framework": "openapi",
+      "sourceFile": "apps/demo-services/settlement-risk-spring/openapi.json",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "risk",
+        "limits",
+        "limit"
+      ],
+      "resourceUris": [
+        "catalog://service/settlement-risk-spring",
+        "catalog://tool/settlement-risk-spring/get_risk_limits_counterparty_id",
+        "catalog://schemas/settlement-risk-spring/get_risk_limits_counterparty_id"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string",
+            "description": "path parameter: counterpartyId"
+          },
+          "query": {
+            "type": "object",
+            "description": "Optional query parameters"
+          }
+        },
+        "required": [
+          "counterpartyId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": {
+            "type": "string"
+          },
+          "creditLimit": {
+            "type": "number"
+          },
+          "utilized": {
+            "type": "number"
+          },
+          "availableHeadroom": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "counterpartyId",
+          "creditLimit",
+          "utilized",
+          "availableHeadroom",
+          "limit"
+        ]
+      },
+      "requiredEntityTypes": [
+        "counterpartyId"
+      ],
+      "producedEntityTypes": [
+        "counterpartyId",
+        "limitId"
+      ],
+      "semanticKeywords": [
+        "getCounterpartyLimit",
+        "counterpartyId",
+        "limitId",
+        "Get counterparty risk limit",
+        "risk",
+        "limit"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "counterpartyId": "CP-001"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "counterpartyId"
+        ],
+        "queryParams": [],
+        "bodyType": null,
+        "responseType": "ResponseEntity<CounterpartyLimitResponse>",
+        "semanticKeywords": [
+          "getCounterpartyLimit",
+          "counterpartyId",
+          "limitId",
+          "Get counterparty risk limit",
+          "risk",
+          "limit"
+        ],
+        "openApiMatched": true
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true,
+        "openapiImported": true
+      },
+      "confidence": {
+        "tool": 0.5,
+        "schema": 0.61,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "OpenAPI contract matched the route",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 4,
+    "fingerprint": "0577c101d7b2cb55335ab040e7ab61cea1648999",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection",
+      "openapi-import"
+    ],
+    "openApiSources": [
+      "apps/demo-services/settlement-risk-spring/openapi.json"
+    ],
+    "avgToolConfidence": 0.4,
+    "avgSchemaConfidence": 0.42,
+    "sampleValues": {}
+  }
+}

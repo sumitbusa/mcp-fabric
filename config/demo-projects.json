@@ -1,0 +1,109 @@
+[
+  {
+    "serviceName": "trade-service",
+    "rootDir": "apps/demo-services/trade-service",
+    "serviceRootDir": "apps/demo-services/trade-service",
+    "openApiFiles": [
+      "apps/demo-services/trade-service/openapi.json"
+    ],
+    "baseUrl": "http://localhost:4010",
+    "domainKeywords": [
+      "trade",
+      "trades",
+      "position",
+      "settlement",
+      "portfolio"
+    ]
+  },
+  {
+    "serviceName": "money-market-service",
+    "rootDir": "apps/demo-services/money-market-service",
+    "serviceRootDir": "apps/demo-services/money-market-service",
+    "openApiFiles": [
+      "apps/demo-services/money-market-service/openapi.json"
+    ],
+    "baseUrl": "http://localhost:4020",
+    "domainKeywords": [
+      "money market",
+      "rate",
+      "rates",
+      "deal",
+      "deals",
+      "instrument",
+      "counterparty",
+      "limit"
+    ]
+  },
+  {
+    "serviceName": "settlement-risk-spring",
+    "rootDir": "apps/demo-services/settlement-risk-spring/src/main/java",
+    "serviceRootDir": "apps/demo-services/settlement-risk-spring",
+    "openApiFiles": [
+      "apps/demo-services/settlement-risk-spring/openapi.json"
+    ],
+    "baseUrl": "http://localhost:4030",
+    "domainKeywords": [
+      "risk",
+      "counterparty",
+      "limit",
+      "exposure",
+      "breach",
+      "settlement risk"
+    ]
+  },
+  {
+    "serviceName": "broker-money-market-service",
+    "rootDir": "apps/demo-services/broker-money-market-service/src/main/java",
+    "serviceRootDir": "apps/demo-services/broker-money-market-service",
+    "openApiFiles": [],
+    "baseUrl": "http://localhost:4040",
+    "domainKeywords": [
+      "broker",
+      "jpmc",
+      "jpm",
+      "money market",
+      "issuer",
+      "investor",
+      "top account",
+      "maturity",
+      "outstanding",
+      "broker outstanding"
+    ]
+  },
+  {
+    "serviceName": "dtcc-intraday-service",
+    "rootDir": "apps/demo-services/dtcc-intraday-service/src/main/java",
+    "serviceRootDir": "apps/demo-services/dtcc-intraday-service",
+    "openApiFiles": [],
+    "baseUrl": "http://localhost:4050",
+    "domainKeywords": [
+      "dtcc",
+      "intraday",
+      "obligation",
+      "outstanding",
+      "net flow",
+      "settlement",
+      "position",
+      "realtime",
+      "peak account"
+    ]
+  },
+  {
+    "serviceName": "reference-data-service",
+    "rootDir": "apps/demo-services/reference-data-service/src/main/java",
+    "serviceRootDir": "apps/demo-services/reference-data-service",
+    "openApiFiles": [],
+    "baseUrl": "http://localhost:4060",
+    "domainKeywords": [
+      "reference data",
+      "refdata",
+      "issuer",
+      "investor",
+      "account",
+      "lei",
+      "sector",
+      "rating",
+      "mapping"
+    ]
+  }
+]

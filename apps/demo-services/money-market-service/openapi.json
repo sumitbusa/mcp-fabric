@@ -1,0 +1,78 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Money Market Service", "version": "1.0.0" },
+  "paths": {
+    "/money-market/rates": {
+      "get": {
+        "operationId": "listMoneyMarketRates",
+        "summary": "List money market rates",
+        "tags": ["rates", "money-market"],
+        "parameters": [
+          { "name": "currency", "in": "query", "required": false, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Rates", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Rate" } } } } }
+        }
+      }
+    },
+    "/money-market/instruments/{instrumentId}": {
+      "get": {
+        "operationId": "getInstrumentById",
+        "summary": "Get money market instrument",
+        "tags": ["instrument"],
+        "parameters": [
+          { "name": "instrumentId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Instrument", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Instrument" } } } }
+        }
+      }
+    },
+    "/counterparties/{counterpartyId}/limits": {
+      "get": {
+        "operationId": "getCounterpartyIntradayLimit",
+        "summary": "Get counterparty intraday limit",
+        "tags": ["counterparty", "limit"],
+        "parameters": [
+          { "name": "counterpartyId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Limit", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CounterpartyLimit" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Rate": {
+        "type": "object",
+        "properties": {
+          "currency": { "type": "string" },
+          "tenor": { "type": "string" },
+          "rate": { "type": "number" }
+        },
+        "required": ["currency", "tenor", "rate"]
+      },
+      "Instrument": {
+        "type": "object",
+        "properties": {
+          "instrumentId": { "type": "string" },
+          "type": { "type": "string" },
+          "issuer": { "type": "string" },
+          "tenor": { "type": "string" }
+        },
+        "required": ["instrumentId", "type"]
+      },
+      "CounterpartyLimit": {
+        "type": "object",
+        "properties": {
+          "counterpartyId": { "type": "string" },
+          "intradayLimit": { "type": "number" },
+          "utilized": { "type": "number" },
+          "currency": { "type": "string" }
+        },
+        "required": ["counterpartyId", "intradayLimit", "utilized"]
+      }
+    }
+  }
+}

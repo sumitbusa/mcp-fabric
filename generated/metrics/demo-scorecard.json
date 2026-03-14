@@ -1,0 +1,98 @@
+{
+  "measuredAt": "2026-03-14T09:04:59.411Z",
+  "generatorVersion": "0.5.0",
+  "services_scanned": 6,
+  "routes_discovered": 37,
+  "mcp_tools_generated": 37,
+  "tool_generation_rate": 100,
+  "cache_hits": 0,
+  "cache_misses": 6,
+  "scan_duration_ms": 115.13,
+  "framework_breakdown": {
+    "express-ast": 5,
+    "openapi": 10,
+    "spring": 22
+  },
+  "services": [
+    {
+      "serviceName": "trade-service",
+      "reusedCache": false,
+      "routeCount": 7,
+      "scannedFiles": 2,
+      "avgToolConfidence": 0.58,
+      "avgSchemaConfidence": 0.7
+    },
+    {
+      "serviceName": "money-market-service",
+      "reusedCache": false,
+      "routeCount": 6,
+      "scannedFiles": 2,
+      "avgToolConfidence": 0.54,
+      "avgSchemaConfidence": 0.64
+    },
+    {
+      "serviceName": "settlement-risk-spring",
+      "reusedCache": false,
+      "routeCount": 5,
+      "scannedFiles": 4,
+      "avgToolConfidence": 0.4,
+      "avgSchemaConfidence": 0.42
+    },
+    {
+      "serviceName": "broker-money-market-service",
+      "reusedCache": false,
+      "routeCount": 7,
+      "scannedFiles": 10,
+      "avgToolConfidence": 0.32,
+      "avgSchemaConfidence": 0.4
+    },
+    {
+      "serviceName": "dtcc-intraday-service",
+      "reusedCache": false,
+      "routeCount": 6,
+      "scannedFiles": 8,
+      "avgToolConfidence": 0.32,
+      "avgSchemaConfidence": 0.38
+    },
+    {
+      "serviceName": "reference-data-service",
+      "reusedCache": false,
+      "routeCount": 6,
+      "scannedFiles": 5,
+      "avgToolConfidence": 0.3,
+      "avgSchemaConfidence": 0.36
+    }
+  ],
+  "routing_confidence_examples": [
+    {
+      "query": "find trade settlement",
+      "topService": "trade-service",
+      "confidence": 0.92
+    },
+    {
+      "query": "show usd money market rates",
+      "topService": "money-market-service",
+      "confidence": 0.95
+    },
+    {
+      "query": "counterparty limit exposure",
+      "topService": "settlement-risk-spring",
+      "confidence": 0.94
+    }
+  ],
+  "vscode_generated_servers": [
+    "mcpFabricRemote",
+    "trade_service_generated",
+    "money_market_service_generated",
+    "settlement_risk_spring_generated",
+    "broker_money_market_service_generated",
+    "dtcc_intraday_service_generated",
+    "reference_data_service_generated"
+  ],
+  "runtime_probe_summary": {
+    "validated": 0,
+    "failed": 30,
+    "skipped": 7,
+    "disabled": 0
+  }
+}

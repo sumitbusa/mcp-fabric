@@ -1,0 +1,8 @@
+{
+  "name": "dtcc-intraday-service",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

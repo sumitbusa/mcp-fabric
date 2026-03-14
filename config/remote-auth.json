@@ -1,0 +1,16 @@
+{
+  "tokens": [
+    {
+      "token": "demo-user-token",
+      "userId": "sumit",
+      "roles": ["trader"],
+      "entitlements": ["trade.search", "mm.read", "risk.read"]
+    },
+    {
+      "token": "demo-approver-token",
+      "userId": "manager",
+      "roles": ["approver", "ops_manager"],
+      "entitlements": ["approve.execution"]
+    }
+  ]
+}

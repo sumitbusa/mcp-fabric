@@ -1,0 +1,8 @@
+{
+  "name": "broker-money-market-service",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

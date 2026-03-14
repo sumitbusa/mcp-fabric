@@ -1,0 +1,26 @@
+{
+  "name": "mcp-fabric-poc",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "apps/demo-services/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "demo:start-services": "concurrently -k -n trade,mm,risk,broker,dtcc,ref \"npm run start --workspace trade-service\" \"npm run start --workspace money-market-service\" \"npm run start --workspace settlement-risk-spring\" \"npm run start --workspace broker-money-market-service\" \"npm run start --workspace dtcc-intraday-service\" \"npm run start --workspace reference-data-service\"",
+    "demo:generate": "npm run start --workspace generator-cli",
+    "demo:start-fabric": "npm run start --workspace mcp-fabric-server",
+    "demo:start-fabric-http": "npm run start:http --workspace mcp-fabric-server",
+    "demo:build-extension": "npm run compile --workspace mcp-fabric-vscode-extension",
+    "demo:smoke-test": "npm run start --workspace mcp-fabric-smoke-test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

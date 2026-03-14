@@ -1,0 +1,879 @@
+{
+  "catalogVersion": "0.5.0",
+  "serviceName": "dtcc-intraday-service",
+  "serviceId": "dtcc-intraday-service",
+  "baseUrl": "http://localhost:4050",
+  "scannedAt": "2026-03-14T09:04:59.404Z",
+  "rootDir": "apps/demo-services/dtcc-intraday-service/src/main/java",
+  "serviceRootDir": "apps/demo-services/dtcc-intraday-service",
+  "domainKeywords": [
+    "dtcc",
+    "intraday",
+    "obligation",
+    "outstanding",
+    "net flow",
+    "settlement",
+    "position",
+    "realtime",
+    "peak account"
+  ],
+  "serviceType": "rest-api",
+  "frameworkSummary": {
+    "spring": 6
+  },
+  "resources": [
+    {
+      "uri": "catalog://service/dtcc-intraday-service",
+      "name": "dtcc-intraday-service catalog",
+      "mimeType": "application/json",
+      "description": "Canonical catalog for dtcc-intraday-service"
+    },
+    {
+      "uri": "catalog://service/dtcc-intraday-service/openapi-derived",
+      "name": "dtcc-intraday-service derived metadata",
+      "mimeType": "application/json",
+      "description": "Generated metadata inferred from source, AST, and OpenAPI"
+    },
+    {
+      "uri": "catalog://service/dtcc-intraday-service/schemas",
+      "name": "dtcc-intraday-service schemas",
+      "mimeType": "application/json",
+      "description": "Derived request and response model schemas"
+    }
+  ],
+  "schemas": {
+    "ObligationSearchRequest": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "accountId": {
+          "type": "string"
+        },
+        "investorId": {
+          "type": "string"
+        },
+        "issuerId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "currency",
+        "accountId",
+        "investorId",
+        "issuerId",
+        "status",
+        "limit"
+      ],
+      "xSource": "com/demo/dtcc/model/ObligationSearchRequest.java",
+      "xModelLanguage": "java"
+    }
+  },
+  "tools": [
+    {
+      "name": "get_dtcc_intraday_accounts_account_id_net_flow",
+      "operationId": "get_account_net_flow",
+      "title": "get_dtcc_intraday_accounts_account_id_net_flow",
+      "description": "GET /dtcc/intraday/accounts/{accountId}/net-flow — get account net flow for dtcc, intraday, accounts, net-flow",
+      "method": "GET",
+      "path": "/dtcc/intraday/accounts/{accountId}/net-flow",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "accounts",
+        "net-flow"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/get_dtcc_intraday_accounts_account_id_net_flow",
+        "catalog://schemas/dtcc-intraday-service/get_dtcc_intraday_accounts_account_id_net_flow"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter: accountId"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string"
+          },
+          "totalAmount": {
+            "type": "number"
+          },
+          "currencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "investorId": {
+            "type": "string"
+          },
+          "issuerId": {
+            "type": "string"
+          },
+          "pendingCount": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "accountId",
+          "totalAmount",
+          "currencies",
+          "investorId",
+          "issuerId",
+          "pendingCount"
+        ],
+        "xSource": "com/demo/dtcc/model/AccountNetFlowResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [
+        "accountId"
+      ],
+      "producedEntityTypes": [
+        "accountId",
+        "obligationId"
+      ],
+      "semanticKeywords": [
+        "getAccountNetFlow",
+        "accountId",
+        "currency",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {
+            "accountId": "demo"
+          },
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [
+          "accountId"
+        ],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<AccountNetFlowResponse>",
+        "semanticKeywords": [
+          "getAccountNetFlow",
+          "accountId",
+          "currency",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_dtcc_intraday_obligations",
+      "operationId": "list_obligations",
+      "title": "get_dtcc_intraday_obligations",
+      "description": "GET /dtcc/intraday/obligations — list obligations for dtcc, intraday, obligations",
+      "method": "GET",
+      "path": "/dtcc/intraday/obligations",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "obligations"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/get_dtcc_intraday_obligations",
+        "catalog://schemas/dtcc-intraday-service/get_dtcc_intraday_obligations"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          },
+          "accountId": {
+            "type": "string",
+            "description": "Query parameter: accountId"
+          },
+          "issuerId": {
+            "type": "string",
+            "description": "Query parameter: issuerId"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Query parameter: limit"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "obligationId": {
+              "type": "string"
+            },
+            "accountId": {
+              "type": "string"
+            },
+            "investorId": {
+              "type": "string"
+            },
+            "issuerId": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "obligationId",
+            "accountId",
+            "investorId",
+            "issuerId",
+            "currency",
+            "amount",
+            "status"
+          ],
+          "xSource": "com/demo/dtcc/model/ObligationRecord.java",
+          "xModelLanguage": "java"
+        }
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "obligationId"
+      ],
+      "semanticKeywords": [
+        "listObligations",
+        "currency",
+        "accountId",
+        "issuerId",
+        "limit",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency",
+          "accountId",
+          "issuerId",
+          "limit"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<List<ObligationRecord>>",
+        "semanticKeywords": [
+          "listObligations",
+          "currency",
+          "accountId",
+          "issuerId",
+          "limit",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.31,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "post_dtcc_intraday_obligations_search",
+      "operationId": "search_obligations",
+      "title": "post_dtcc_intraday_obligations_search",
+      "description": "POST /dtcc/intraday/obligations/search — search obligations for dtcc, intraday, obligations",
+      "method": "POST",
+      "path": "/dtcc/intraday/obligations/search",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "obligations"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/post_dtcc_intraday_obligations_search",
+        "catalog://schemas/dtcc-intraday-service/post_dtcc_intraday_obligations_search"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "accountId": {
+                "type": "string"
+              },
+              "investorId": {
+                "type": "string"
+              },
+              "issuerId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "currency",
+              "accountId",
+              "investorId",
+              "issuerId",
+              "status",
+              "limit"
+            ],
+            "xSource": "com/demo/dtcc/model/ObligationSearchRequest.java",
+            "xModelLanguage": "java"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "obligationId": {
+              "type": "string"
+            },
+            "accountId": {
+              "type": "string"
+            },
+            "investorId": {
+              "type": "string"
+            },
+            "issuerId": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "obligationId",
+            "accountId",
+            "investorId",
+            "issuerId",
+            "currency",
+            "amount",
+            "status"
+          ],
+          "xSource": "com/demo/dtcc/model/ObligationRecord.java",
+          "xModelLanguage": "java"
+        }
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "obligationId"
+      ],
+      "semanticKeywords": [
+        "searchObligations",
+        "request",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [],
+        "bodyType": "ObligationSearchRequest",
+        "responseType": "ResponseEntity<List<ObligationRecord>>",
+        "semanticKeywords": [
+          "searchObligations",
+          "request",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.42,
+        "schema": 0.41,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code"
+        ]
+      },
+      "validation": {
+        "status": "skipped",
+        "reason": "method POST not enabled for probing"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_dtcc_intraday_outstanding",
+      "operationId": "get_outstanding",
+      "title": "get_dtcc_intraday_outstanding",
+      "description": "GET /dtcc/intraday/outstanding — get outstanding for dtcc, intraday, outstanding",
+      "method": "GET",
+      "path": "/dtcc/intraday/outstanding",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "outstanding"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/get_dtcc_intraday_outstanding",
+        "catalog://schemas/dtcc-intraday-service/get_dtcc_intraday_outstanding"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "totalAmount": {
+            "type": "number"
+          },
+          "largestIssuerId": {
+            "type": "string"
+          },
+          "topIssuers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xTypeName": "IssuerOutstandingRecord"
+            }
+          }
+        },
+        "required": [
+          "currency",
+          "totalAmount",
+          "largestIssuerId",
+          "topIssuers"
+        ],
+        "xSource": "com/demo/dtcc/model/DtccOutstandingResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "obligationId",
+        "currency"
+      ],
+      "semanticKeywords": [
+        "getOutstanding",
+        "currency",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<DtccOutstandingResponse>",
+        "semanticKeywords": [
+          "getOutstanding",
+          "currency",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_dtcc_intraday_positions_bulk",
+      "operationId": "get_bulk_positions",
+      "title": "get_dtcc_intraday_positions_bulk",
+      "description": "GET /dtcc/intraday/positions/bulk — get bulk positions for dtcc, intraday, positions, bulk",
+      "method": "GET",
+      "path": "/dtcc/intraday/positions/bulk",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "positions",
+        "bulk"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/get_dtcc_intraday_positions_bulk",
+        "catalog://schemas/dtcc-intraday-service/get_dtcc_intraday_positions_bulk"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Query parameter: count"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "generatedAt": {
+            "type": "string"
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xTypeName": "ObligationRecord"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "generatedAt",
+          "positions"
+        ],
+        "xSource": "com/demo/dtcc/model/PositionsBulkResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "obligationId"
+      ],
+      "semanticKeywords": [
+        "getBulkPositions",
+        "count",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "count"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<PositionsBulkResponse>",
+        "semanticKeywords": [
+          "getBulkPositions",
+          "count",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    },
+    {
+      "name": "get_dtcc_intraday_summary",
+      "operationId": "get_summary",
+      "title": "get_dtcc_intraday_summary",
+      "description": "GET /dtcc/intraday/summary — get summary for dtcc, intraday, summary",
+      "method": "GET",
+      "path": "/dtcc/intraday/summary",
+      "framework": "spring",
+      "sourceFile": "com/demo/dtcc/controller/DtccIntradayController.java",
+      "safe": true,
+      "riskLevel": "low",
+      "tags": [
+        "dtcc",
+        "intraday",
+        "summary"
+      ],
+      "resourceUris": [
+        "catalog://service/dtcc-intraday-service",
+        "catalog://tool/dtcc-intraday-service/get_dtcc_intraday_summary",
+        "catalog://schemas/dtcc-intraday-service/get_dtcc_intraday_summary"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Query parameter: currency"
+          }
+        },
+        "required": []
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "asOf": {
+            "type": "string"
+          },
+          "obligationCount": {
+            "type": "integer"
+          },
+          "totalAmount": {
+            "type": "number"
+          },
+          "largestIssuerId": {
+            "type": "string"
+          },
+          "peakAccountId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "asOf",
+          "obligationCount",
+          "totalAmount",
+          "largestIssuerId",
+          "peakAccountId"
+        ],
+        "xSource": "com/demo/dtcc/model/DtccSummaryResponse.java",
+        "xModelLanguage": "java"
+      },
+      "requiredEntityTypes": [],
+      "producedEntityTypes": [
+        "obligationId"
+      ],
+      "semanticKeywords": [
+        "getSummary",
+        "currency",
+        "obligationId"
+      ],
+      "auth": {
+        "type": "unknown",
+        "inferred": false
+      },
+      "examples": {
+        "invocation": {
+          "args": {},
+          "query": {},
+          "note": "Populate path params and optional query fields."
+        }
+      },
+      "businessHints": {
+        "operationShape": "read",
+        "pathParams": [],
+        "queryParams": [
+          "currency"
+        ],
+        "bodyType": null,
+        "responseType": "ResponseEntity<DtccSummaryResponse>",
+        "semanticKeywords": [
+          "getSummary",
+          "currency",
+          "obligationId"
+        ],
+        "openApiMatched": false
+      },
+      "scanEvidence": {
+        "staticRegex": true,
+        "reflectionSource": true
+      },
+      "confidence": {
+        "tool": 0.3,
+        "schema": 0.39,
+        "reasons": [
+          "route found by static source scan",
+          "DTO and source models reflected from code",
+          "runtime probe failed for the sampled invocation"
+        ]
+      },
+      "validation": {
+        "status": "failed",
+        "error": "fetch failed"
+      },
+      "publishReady": false
+    }
+  ],
+  "assumptions": [
+    "Metadata was generated by hybrid scanning: static source, AST inference, source-reflection, and optional OpenAPI import.",
+    "Runtime probe validation currently samples safe methods configured in fabric-config.json.",
+    "Confidence scores are heuristic and combine static evidence, schema richness, OpenAPI corroboration, and runtime validation.",
+    "Generated tool names remain stable for unchanged route signatures."
+  ],
+  "scanMeta": {
+    "scannedFiles": 8,
+    "fingerprint": "88a05fae0a9b59262f652832eca6f481aba9cf07",
+    "generatedBy": "generator-cli",
+    "detectionStages": [
+      "static-route-scan",
+      "ast-analysis",
+      "source-reflection"
+    ],
+    "openApiSources": [],
+    "avgToolConfidence": 0.32,
+    "avgSchemaConfidence": 0.38,
+    "sampleValues": {}
+  }
+}
